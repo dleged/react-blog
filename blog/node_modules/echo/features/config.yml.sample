@@ -1,0 +1,4 @@
+base_url: 'http://testserver:port'
+valid_info:
+  bus: 'some valid bus name'
+  key: 'some valid key'

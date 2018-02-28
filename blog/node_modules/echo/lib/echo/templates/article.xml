@@ -1,0 +1,8 @@
+<activity:object>
+  <activity:object-type>http://activitystrea.ms/schema/1.0/article</activity:object-type>
+  <title type="text"><%= article.title%></title>
+  <summary type="text"><%= article.summary%></summary>
+  <content type="text"><%= article.content%></content>
+  <link rel="alternate" type="text/html" href="<%= article.url%>"/>
+  <id><%= article.url%></id>
+</activity:object>

@@ -1,0 +1,5 @@
+<activity:object>
+    <activity:object-type>http://js-kit.com/spec/e2/v1/marker</activity:object-type>
+    <id><%= marker.id %></id>
+    <title><%= marker.title %></title>
+</activity:object>
