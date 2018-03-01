@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import axios from 'axios';
-
+import PropTypes from "prop-types";
 class Content extends Component {
 	constructor(){
 		super();
@@ -62,10 +62,24 @@ function Prompt(props) {
 }
 
 class Article extends Component {
+	static contextTypes = {
+	    router: PropTypes.object
+	}
+  	constructor(props, context) {
+     super(props, context);
+		this.fetchDetail = this.fetchDetail.bind(this);
+	}
+	fetchDetail(id){
+		this.context.router.history.push('listDetail');
+	}
 	render(){
 		return(
 		    <article className="blog-piece">
-		        <h2 className="blog-title"><a href="./list?_id={ this.props.id }">{ this.props.data.title }</a></h2>
+		        <h2 className="blog-title">
+					<a to='/listDetail' onClick={this.props.fetchDetail}>
+						{ this.props.data.title }
+					</a>
+				</h2>
 		        <div className="blog-meta">
 		            <div className="mark-tag">
 						{
@@ -81,7 +95,7 @@ class Article extends Component {
 		        </div>
 		        <section className="blog-excerpt">
 		            <p className="blog-article"> { this.props.data.info } ...
-		                <a className="read-more" href="./list?_id={ this.props.id }">MORE</a>
+						<a className="read-more" onClick={this.fetchDetail} to='/listDetail'>MORE</a>
 		            </p>
 		        </section>
 		    </article>
@@ -144,48 +158,4 @@ class Pages extends Component {
 	}
 }
 
-
 export default Content;
-// <section className="content-list content">
-//     {% if responseData.data.length == 0 %}
-//         <h3 className="blog-tips">还没有博客，开始你的第一个
-//             <a href="/admin">博客吧！</a>
-//         </h3>
-//     {% endif %}
-//     {% for item in responseData.data %}
-//     <!--博客列表-->
-//     <article className="blog-piece">
-//         <h2 className="blog-title"><a href="./list?_id={{ item.id }}">{{ item.title }}</a></h2>
-//         <div className="blog-meta">
-//             <div className="mark-tag">
-//                 {% for mark in item.mark.split(',') %}
-//                     <a href="/tag/{{mark}}" target="_blank">{{mark}}</a>
-//                 {% endfor %}
-//             </div>
-//             <!-- <a href="#">{{item.author}}</a>
-//             on , -->
-//             <time className="post-date" datetime="2017-10-26">{{ item.createTime|date('Y/m/d', -480, 'CCT') }}
-//             </time>
-//         </div>
-//         <section className="blog-excerpt">
-//             <p className="blog-article"> {% autoescape %}{{ item.info }}{% endautoescape %} ...
-//                 <a className="read-more" href="./list?_id={{ item.id }}">MORE</a>
-//             </p>
-//         </section>
-//     </article>
-//     {% endfor %}
-//     <!--上下页-->
-//     {% if responseData.data.length %}
-//         <nav className="pagination" role="navigation">
-//             {% if responseData.page!= 1  %}
-//             <a className="newer-posts" href="./index?page={{ responseData.page-1 }}">
-//                 <span aria-hidden="true">←</span> PREV </a>
-//             {% endif %}
-//             <span className="page-number">Page {{ responseData.page }} of {{ responseData.pages }}</span>
-//             {% if responseData.page!= responseData.pages  %}
-//             <a className="older-posts" href="./index?page={{ responseData.page+1 }}">
-//                 NEXT <span aria-hidden="true">→</span></a>
-//             {% endif %}
-//         </nav>
-//     {% endif %}
-// </section>
