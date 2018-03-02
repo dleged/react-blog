@@ -1,10 +1,19 @@
 import React, { Component }  from 'react';
-import axios from 'axios';
 
 class Detail extends Component {
 	constructor(props){
 		super(props);
-		this.state = {};
+		this.state = {
+			data:{
+				data: {
+					title: '',
+					content: '',
+					author: '',
+					mark: '',
+					createTime: ''
+				}
+			}
+		};
 		this.post = this.post.bind(this);
 	}
 
@@ -23,7 +32,7 @@ class Detail extends Component {
 			if(res.ok){
 				res.text().then((data)=>{
 					data = JSON.parse(data);
-	                that.setState({data: data});
+	                that.setState({data});
 	            })
 			}
 
@@ -32,32 +41,30 @@ class Detail extends Component {
 		})
 	}
 
-	componentDidMount() {
-		this.post('5a964d0e96078e32b107c274');
+	componentDidMount = () => {
+		this.post(this.props.match.params.id);
 	}
 
 	render(){
-		if(!this.state.data){
-			return;
-		}
+		let data = this.state.data.data;
 		return (
 			<article className="blog-piece">
-		        <h2 className="blog-title"><a href="./list?_id={ this.props.id }">{ this.props.data.title }</a></h2>
+		        <h2 className="blog-title"><a href="./list?_id={ this.props.id }">{ data.title }</a></h2>
 		        <div className="blog-meta">
 		            <div className="mark-tag">
 						{
-							this.props.data.mark.split().map(mark=>{
+						 data.mark.split().map(mark=>{
 								<a href="#" target="_self">{ mark }</a>
 							})
 						}
 		            </div>
-		            <a href="#">{ this.props.author }</a>
+		            <a href="#">{ data.author }</a>
 		            on ,
-		            <time className="post-date">{ this.props.data.createTime.slice(0,10) }
+		            <time className="post-date">{ data.createTime.slice(0,10) }
 		            </time>
 		        </div>
 		        <section className="blog-excerpt">
-					<p> { this.props.data.content } </p>
+					<p dangerouslySetInnerHTML={ {__html: data. content} }></p>
 		        </section>
 		    </article>
 		)

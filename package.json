@@ -31,10 +31,13 @@
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
+    "prop-types": "^15.6.1",
     "raf": "3.4.0",
     "react": "^16.2.0",
     "react-dev-utils": "^5.0.0",
     "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
@@ -97,10 +100,10 @@
     "proxy": "^0.2.4"
   },
   "proxy": {
-        "/": {
-          "target": "http://localhost:9999",
-          "secure": "false",
-          "changeOrigin": "true"
-        }
+    "/": {
+      "target": "http://localhost:9999",
+      "secure": "false",
+      "changeOrigin": "true"
     }
+  }
 }

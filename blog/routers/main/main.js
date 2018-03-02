@@ -100,7 +100,23 @@ router.post('/queryList',function(req,res,next){
     })
 })
 
-
+/*
+*@react-blog接口
+* 博客详情-api
+* */
+router.post('/listDetail',function(req,res,next){
+    var id = req.body.id;
+    ContentBase.findOne({_id: id}).then(function(content){
+        if(content){
+            responseData = {
+                code: 1,
+                message: '博客详情查询成功！',
+                data: content
+            }
+            res.json(responseData);
+        }
+    });
+})
 
 
 module.exports = router;
