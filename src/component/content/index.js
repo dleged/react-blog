@@ -84,7 +84,27 @@ class Article extends Component {
 		let data = this.props.data;
 		return(
 		    <article className="blog-piece">
+<<<<<<< HEAD
 				<Title data={ data } />
+=======
+				<h2 className="blog-title"><a href="./list?_id={ this.props.id }">{ data.title }</a></h2>
+			   	<div className="blog-meta">
+				   <div className="mark-tag">
+					   {
+						data.mark.split().map(mark => {
+							   return <a href="#" target="_self">{ mark }</a>
+						   })
+					   }
+				   </div>
+
+				   <div class="create-info">
+					   <a href="#"> { data.author } </a>,
+					   on
+					   <time className="post-date"> { data.createTime.slice(0,10) }
+					   </time>
+				   </div>
+			   	</div>
+>>>>>>> a9c7a3ca1e3ed89467fb46e78aca221c087c635c
 		        <section className="blog-excerpt">
 		            <p className="blog-article"> { data.info } ...
 						<Link className="read-more" to={ `/listDetail.html/${data._id}` }>MORE</Link>
