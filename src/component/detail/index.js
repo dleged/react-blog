@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import Title from '../title';
 
 class Detail extends Component {
 	constructor(props){
@@ -49,25 +50,9 @@ class Detail extends Component {
 		let data = this.state.data.data;
 		return (
 			<article className="blog-piece">
-		        <h2 className="blog-title"><a href="./list?_id={ this.props.id }">{ data.title }</a></h2>
-		        <div className="blog-meta">
-		            <div className="mark-tag">
-						{
-						 data.mark.split().map(mark => {
-								return <a href="#" target="_self">{ mark }</a>
-							})
-						}
-		            </div>
-
-					<div class="create-info">
-						<a href="#"> { data.author } </a>,
-						on
-						<time className="post-date"> { data.createTime.slice(0,10) }
-						</time>
-					</div>
-		        </div>
+		        <Title data={ data } />
 		        <section className="blog-excerpt">
-					<p dangerouslySetInnerHTML={ {__html: data. content} }></p>
+					<p dangerouslySetInnerHTML={ {__html: data.content} }></p>
 		        </section>
 		    </article>
 		)
