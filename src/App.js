@@ -10,6 +10,21 @@ import {
     Route,
  } from 'react-router-dom';
 
+ // render(
+ //     <Provider store={store}>
+ //        <Router history={browserHistory}>
+ //          <Route path='Login' component={Login} />
+ //          <Route path='/' component={App}>
+ //              <IndexRoute component={Index}/>
+ //              <Route path='LearnCenter' component={LearnCenter}/>
+ //              <Route path='ArticleDetail/:id' component={ArticleDetail}/>
+ //          </Route>
+ //          <Route path='/404' component={NotFoundPage} />
+ //          <Redirect from='*' to='/404' />
+ //        </Router>
+ //     </Provider>,
+ //     document.getElementById('root')
+ // );
 
 class App extends Component {
   render() {

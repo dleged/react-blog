@@ -79,29 +79,29 @@ class Article extends Component {
 		this.context.router.history.push('listDetail');
 	}
 	render(){
+		let data = this.props.data;
 		return(
 		    <article className="blog-piece">
-		        <h2 className="blog-title">
-					<a to='/listDetail' onClick={this.props.fetchDetail}>
-						{ this.props.data.title }
-					</a>
-				</h2>
-		        <div className="blog-meta">
-		            <div className="mark-tag">
-						{
-							this.props.data.mark.split().map(mark=>{
-								<a key={mark} href="/tag/{ mark }" target="_blank">{ mark }</a>
-							})
-						}
-		            </div>
-		            <a href="#">{ this.props.author }</a>
-		            on ,
-		            <time className="post-date">{ this.props.data.createTime.slice(0,10) }
-		            </time>
-		        </div>
+				<h2 className="blog-title"><a href="./list?_id={ this.props.id }">{ data.title }</a></h2>
+			   	<div className="blog-meta">
+				   <div className="mark-tag">
+					   {
+						data.mark.split().map(mark => {
+							   return <a href="#" target="_self">{ mark }</a>
+						   })
+					   }
+				   </div>
+
+				   <div class="create-info">
+					   <a href="#"> { data.author } </a>,
+					   on
+					   <time className="post-date"> { data.createTime.slice(0,10) }
+					   </time>
+				   </div>
+			   	</div>
 		        <section className="blog-excerpt">
-		            <p className="blog-article"> { this.props.data.info } ...
-						<Link className="read-more" to={ `/listDetail.html/${this.props.data._id}` }>MORE</Link>
+		            <p className="blog-article"> { data.info } ...
+						<Link className="read-more" to={ `/listDetail.html/${data._id}` }>MORE</Link>
 		            </p>
 		        </section>
 		    </article>

@@ -53,15 +53,18 @@ class Detail extends Component {
 		        <div className="blog-meta">
 		            <div className="mark-tag">
 						{
-						 data.mark.split().map(mark=>{
-								<a href="#" target="_self">{ mark }</a>
+						 data.mark.split().map(mark => {
+								return <a href="#" target="_self">{ mark }</a>
 							})
 						}
 		            </div>
-		            <a href="#">{ data.author }</a>
-		            on ,
-		            <time className="post-date">{ data.createTime.slice(0,10) }
-		            </time>
+
+					<div class="create-info">
+						<a href="#"> { data.author } </a>,
+						on
+						<time className="post-date"> { data.createTime.slice(0,10) }
+						</time>
+					</div>
 		        </div>
 		        <section className="blog-excerpt">
 					<p dangerouslySetInnerHTML={ {__html: data. content} }></p>

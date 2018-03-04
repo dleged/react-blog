@@ -345,10 +345,10 @@ button{
     color: #1b6050;
 }
 .blog-piece{
-    /* width: 880px; */
+    width: 880px;
     padding: 25px 40px 0 40px;
-    /* margin-top: 60px; */
     background: white;
+    display: inline-block;
 }
 .blog-code{
     -webkit-box-shadow: 0 0 2.5em #5d656c;
@@ -376,6 +376,9 @@ button{
     content: "标签：";
     position: relative;
     color: #1F7A65;
+}
+.create-info{
+    float: right;
 }
 .read-more{
     padding: 0 5px;
@@ -449,7 +452,6 @@ button{
 }
 .post-date{
     color: #969696;
-    float: right;
     font-size: 12px;
     line-height: 42px;
 }
