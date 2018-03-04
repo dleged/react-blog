@@ -1,12 +1,12 @@
 import React, { Component }  from 'react';
 import Title from '../title';
-
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
 import PropTypes from "prop-types";
+
 class Content extends Component {
 	constructor(){
 		super();
