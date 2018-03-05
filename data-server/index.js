@@ -43,7 +43,7 @@ function dataServer(app,express){
 			req.userInfo = JSON.parse(req.cookies.get('userInfo'));
 			/!*判断是否是管理员*!/
 			User.findById(req.userInfo.id).then(function(user){
-				req.userInfo.isAdmin = Boolean(user.isAdmin);
+				req.userInfo || (req.userInfo.isAdmin = Boolean(user.isAdmin));
 			})
 		}catch(e) {
 			//清空cookies的情况

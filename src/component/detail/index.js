@@ -50,12 +50,7 @@ class Detail extends Component {
 		let data = this.state.data.data;
 		return (
 			<article className="blog-piece">
-<<<<<<< HEAD
 		        <Title data={ data } />
-=======
-<<<<<<< HEAD
-		        <Title data={ data } />
-=======
 		        <h2 className="blog-title"><a href="./list?_id={ this.props.id }">{ data.title }</a></h2>
 		        <div className="blog-meta">
 		            <div className="mark-tag">
@@ -73,8 +68,6 @@ class Detail extends Component {
 						</time>
 					</div>
 		        </div>
->>>>>>> a9c7a3ca1e3ed89467fb46e78aca221c087c635c
->>>>>>> e6dac6bf2aa9b47828cf4d93333ab9d36c761ba1
 		        <section className="blog-excerpt">
 					<p dangerouslySetInnerHTML={ {__html: data.content} }></p>
 		        </section>

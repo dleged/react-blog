@@ -83,12 +83,7 @@ class Article extends Component {
 		let data = this.props.data;
 		return(
 		    <article className="blog-piece">
-<<<<<<< HEAD
 				<Title data={ data } />
-=======
-<<<<<<< HEAD
-				<Title data={ data } />
-=======
 				<h2 className="blog-title"><a href="./list?_id={ this.props.id }">{ data.title }</a></h2>
 			   	<div className="blog-meta">
 				   <div className="mark-tag">
