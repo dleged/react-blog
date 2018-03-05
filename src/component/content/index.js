@@ -1,11 +1,17 @@
 import React, { Component }  from 'react';
-import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 import PropTypes from "prop-types";
 class Content extends Component {
 	constructor(){
 		super();
 		this.post = this.post.bind(this);
-		this.state = {};
+		this.state = {
+			data: {}
+		};
 	}
 
 	post(page) {
@@ -23,7 +29,7 @@ class Content extends Component {
 			if(res.ok){
 				res.text().then((data)=>{
 					data = JSON.parse(data);
-	                that.setState({data: data});
+	                that.setState({data});
 	            })
 			}
 
@@ -36,7 +42,7 @@ class Content extends Component {
 	}
 
 	render(){
-		if(!this.state.data){
+		if(!this.state.data.page){
 			return false;
 		}
 		let info;
@@ -84,7 +90,7 @@ class Article extends Component {
 		            <div className="mark-tag">
 						{
 							this.props.data.mark.split().map(mark=>{
-								<a href="/tag/{ mark }" target="_blank">{ mark }</a>
+								<a key={mark} href="/tag/{ mark }" target="_blank">{ mark }</a>
 							})
 						}
 		            </div>
@@ -95,7 +101,7 @@ class Article extends Component {
 		        </div>
 		        <section className="blog-excerpt">
 		            <p className="blog-article"> { this.props.data.info } ...
-						<a className="read-more" onClick={this.fetchDetail} to='/listDetail'>MORE</a>
+						<Link className="read-more" to={ `/listDetail.html/${this.props.data._id}` }>MORE</Link>
 		            </p>
 		        </section>
 		    </article>
@@ -107,7 +113,7 @@ class ArticleList extends Component {
 
 	render(){
 		let articleList = this.props.data.map(function(article){
-			return <Article data={ article } />
+			return <Article key={ article._id } data={ article } />
 		});
 		return articleList;
 	}
@@ -135,9 +141,6 @@ class Pages extends Component {
 	}
 
 	prePage = () => {
-		if(this.state.page === 1){
-			return;
-		}
 		let page = --this.state.page;
 		this.setState({
 			page: page
