@@ -237,7 +237,7 @@
             /*博客内容保存*/
             $('#save-blog').bind('click',function(e){
                 var info = $('#editor').text(),
-                    _info = info.length > 60 ? info.slice(0,60) : info,
+                    _info = info.length > 60 ? info.slice(0,200) : info,
                     _title =  $('#title').val(),
                     _content = $('#editor').html(),
                     _id  = $('#blog-add').attr('data-id'),

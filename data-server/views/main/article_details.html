@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>端了个端</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="范端端" />
+    <!--<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">-->
+    <link rel="stylesheet" href="/public/main/css/blog.css">
+</head>
+<body>
+<div class="main-bolg">
+    <!--博客菜单导航-->
+    {% include "./template/header.html" %}
+    <div class="blog-main">
+        <div class="blog-content">
+            <!--博客内容详情-->
+            <article class="blog-piece blog-code">
+                <h2 class="blog-title"><a href="./list/{{ item.id }}">{{ responseData.data.title }}</a></h2>
+                <div class="blog-meta">
+                    <!-- <a href="#">{{ responseData.data.author }}</a> on ,
+                    <time class="post-date" datetime="2017-10-26">
+                        {{ responseData.data.createTime|date('Y-m-d H:i:s', -480, 'CCT') }}
+                    </time> -->
+                </div>
+                <section class="blog-excerpt">
+                    <p> {% autoescape %}{{ responseData.data.content }}{% endautoescape %} </p>
+                </section>
+            </article>
+        </div>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="/public/main/js/jquery.min.js"></script>
+<!-- Main -->
+<script src="/public/main/js/template.base.js"></script>
+<script src="/public/main/js/index.js"></script>
+<script src="/public/main/js/pShine-validator.js"></script>
+<script src="/public/main/js/modalV.js"></script>
+<script src="public/main/js/canvas.js"></script>
+</body>
+</html>
+

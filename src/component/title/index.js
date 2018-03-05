@@ -10,11 +10,11 @@ class Title extends Component {
 				<div className="mark-tag">
 					{
 					 data.mark.split().map(mark => {
-							return <a href="#" target="_self">{ mark }</a>
+							return <a key="mark" href="#" target="_self">{ mark }</a>
 						})
 					}
 				</div>
-				<div class="create-info">
+				<div className="create-info">
 					<a href="#"> { data.author } </a>,
 					on
 					<time className="post-date"> { data.createTime.slice(0,10) }
