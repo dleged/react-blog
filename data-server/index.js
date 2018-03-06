@@ -6,6 +6,7 @@ const Cookies = require('cookies');
 const config = require('./build/server.conf.js').dev;
 const User = require('./models/user');
 //const DB_NAME = 'mongodb://47.96.167.149:27017/usr/local/mongodb/db/blogDB';//连接远mongodb
+// usr/local/mongodb/bin/mongod --dbpath=/Users/fanduanduan/Desktop/FRONT-END/node/react-blog/data-server/db
 const DB_NAME = 'mongodb://localhost:27017/db';
 
 function dataServer(app,express){
