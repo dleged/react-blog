@@ -86,7 +86,7 @@ class Article extends Component {
 				<Title data={ data } />
 		        <section className="blog-excerpt">
 		            <p className="blog-article"> { data.info } ...
-						<Link className="read-more" to={ `/listDetail.html/${data._id}` }>MORE</Link>
+						<Link className="read-more" to={ `/listDetail/${data._id}` }>MORE</Link>
 		            </p>
 		        </section>
 		    </article>

@@ -34,8 +34,8 @@ class App extends Component {
                 <Header />
                 <div className="blog-main">
                     <div className="blog-content">
-                        <Route exact path='/' component={Content}/>
-                        <Route path='/listDetail.html/:id' component={Detail} />
+                        <Route exact path='/index' component={Content}/>
+                        <Route path='/listDetail/:id' component={Detail} />
                         <BasicProfile />
                     </div>
                 </div>

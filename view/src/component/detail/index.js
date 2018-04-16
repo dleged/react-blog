@@ -20,7 +20,7 @@ class Detail extends Component {
 
 	post(id){
 		let that = this;
-		fetch('/api/listDetail',
+		fetch('/main/listDetail',
 		 	{ method: 'POST',
 				headers: {
 					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
@@ -31,14 +31,14 @@ class Detail extends Component {
 		   }
 	   ).then(function (res) {
 			if(res.ok){
+				console.log(res)
 				res.text().then((data)=>{
-					data = JSON.parse(data);
-	                that.setState({data});
-	            })
+						data = JSON.parse(data);
+            that.setState({data});
+        })
 			}
-
 		}).catch(function(err){
-			console.log(err);
+			 console.log(err);
 		})
 	}
 

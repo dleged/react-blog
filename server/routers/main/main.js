@@ -112,6 +112,7 @@ router.post('/listDetail',function(req,res,next){
                 message: '博客详情查询成功！',
                 data: content
             }
+            console.log(content)
             res.json(responseData);
         }
     });
