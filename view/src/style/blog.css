@@ -124,7 +124,8 @@ button{
     height: 50px;
     color: white;
     font-size: 14px;
-    line-height: 60px;
+    line-height: 45px;
+    box-sizing: border-box;
 }
 .headerV .headerv-nav a:hover, .headerV .headerv-nav a.router-link-active {
     border-bottom: 4px solid #1f7a65;
@@ -153,10 +154,10 @@ button{
 }
 .headerV-center{
     color: white;
-    top: -11px;
     text-align: center;
     font-size: 30px;
-    position: relative;
+    float: left;
+    width: 100%;
 }
 .router-link-active{
     color: white;
@@ -390,6 +391,8 @@ button{
     line-height: 1.5;
     color: #1f7a65;
     border-bottom: 1px solid #164;
+    float: right;
+    text-indent: 0px;
 }
 @media only screen and (max-width: 960px){
     .blog-content{

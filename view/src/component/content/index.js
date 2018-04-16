@@ -18,7 +18,7 @@ class Content extends Component {
 
 	post(page) {
 		let that = this;
-		fetch('/api/queryList',
+		fetch('/main/queryList',
 		 	{ method: 'POST',
 				headers: {
 					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
@@ -126,7 +126,10 @@ class Pages extends Component {
 	}
 
 	prePage = () => {
-		let page = --this.state.page;
+    if(this.state.page){
+      return;
+    }
+		let page =  --this.state.page;
 		this.setState({
 			page: page
 		});
@@ -136,12 +139,15 @@ class Pages extends Component {
 	render(){
 		return (
 			<nav className="pagination" role="navigation">
-	            <a className={ this.state.page == 1 ? "defalut-posts newer-posts" : "newer-posts" } onClick={this.prePage}>
-	                <span aria-hidden="true">←</span> PREV </a>
-	            <span className="page-number">Page { this.state.page } of { this.state.pages }</span>
-	            <a className={ this.state.page == this.state.pages? "defalut-posts older-posts" : "older-posts" } onClick={this.nextPage}>
-	                NEXT <span aria-hidden="true">→</span></a>
-	        </nav>
+          <a className={ this.state.page == 1 ? "defalut-posts newer-posts" : "newer-posts" } onClick={this.prePage}>
+              <span aria-hidden="true">←</span> PREV </a>
+          <span className="page-number">Page { this.state.page } of { this.state.pages }</span>
+          <a className={ this.state.page == this.state.pages? "defalut-posts older-posts" : "older-posts" }
+             onClick={this.nextPage}>
+              NEXT
+              <span aria-hidden="true">→</span>
+          </a>
+      </nav>
 		);
 	}
 }

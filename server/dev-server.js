@@ -79,14 +79,22 @@ app.use(function(req,res,next){
  * 用户发送http - url - 解析路由 - 找到匹配规则 -
  * 指定绑定函数，返回对象内容至用户
  * */
+ //
+ // app.use(function(req, res, next) {
+ //     let err = new Error('Not Found');
+ //     err.status = 404;
+ //     console.error('WRONG:', '404 Not Found');
+ //     res.redirect('/admin');
+ //     next(err);
+ // });
 
 // app.use('/',require('./routers/main/main'));//页面跳转
 
-//后台页面 接口路由
+//后台页面-接口路由
 app.use('/admin',require('./routers/admin/admin'));
 
-//博客页面 接口路由
-app.use('/api',require('./routers/admin/api'));
+//博客页面-接口路由
+app.use('/api',require('./routers/main/api'));
 app.use('/main',require('./routers/main/main'));
 
 mongoose.connect(DB_NAME,function(err){

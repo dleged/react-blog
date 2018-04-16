@@ -46,4 +46,13 @@ class App extends Component {
   }
 }
 
+(function(){
+  const t = window.performance && performance.timing;
+  if (!t) {
+    return;
+  }
+  const loadTime = (t.loadEventEnd - t.navigationStart) / 1000;
+  console.log(`This page loaded in ${loadTime} seconds`);
+}())
+
 export default App;
