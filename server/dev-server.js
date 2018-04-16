@@ -80,13 +80,13 @@ app.use(function(req,res,next){
  * 指定绑定函数，返回对象内容至用户
  * */
  //
- // app.use(function(req, res, next) {
- //     let err = new Error('Not Found');
- //     err.status = 404;
- //     console.error('WRONG:', '404 Not Found');
- //     res.redirect('/admin');
- //     next(err);
- // });
+ app.use(function(req, res, next) {
+     let err = new Error('Not Found');
+     err.status = 404;
+     console.error('WRONG:', '404 Not Found');
+     res.redirect('/admin');
+     next(err);
+ });
 
 // app.use('/',require('./routers/main/main'));//页面跳转
 
