@@ -1,9 +1,9 @@
 @charset "UTF-8";
-div,p,section,h1,h2,h3,h4,h5,h6,span,article,textarea,input,select{box-sizing: border-box;}
+div,p,section,h1,h2,h3,h4,h5,h6,span,article,section,textarea,input,select{box-sizing: border-box;}
 body {
     line-height: 1.5;
     font-family: 'Microsoft Yahei';
-    background: #fafafa;
+    background: white;
     padding: 0;
     margin: 0;
 }
@@ -345,10 +345,8 @@ button{
     color: #1b6050;
 }
 .blog-piece{
-    width: 880px;
     padding: 25px 40px 0 40px;
     background: white;
-    display: inline-block;
 }
 .blog-code{
     -webkit-box-shadow: 0 0 2.5em #5d656c;
@@ -366,45 +364,87 @@ button{
     color: #969696;
 }
 .blog-excerpt{overflow: hidden;}
-.blog-title{position: relative;font-size: 18px;margin-bottom: 0px;}
+.blog-title{position: relative;font-size: 16px;margin-bottom: 0px;}
 .blog-meta{text-indent: 0px;}
 .mark-tag{
-    padding: 10px 0;
+    padding: 0px 10px;
     display: inline-block;
+    font-size: 13px;
 }
-.mark-tag:before{
+.create-info {
+    height: 30px;
+    margin-bottom: 10px;
+}
+/* .mark-tag:before{
     content: "标签：";
     position: relative;
     color: #1F7A65;
-}
-.create-info{
+} */
+/* .create-info{
     float: right;
-}
+} */
 .read-more{
-    padding: 0 5px;
-    text-align: center;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #1f7a65;
-    border-bottom: 1px solid #164;
-    float: right;
-    text-indent: 0px;
+  padding: 0 5px;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1f7a65;
+  border-bottom: 1px solid #164;
+  text-indent: 0px;
+  position: relative;
 }
-@media only screen and (max-width: 960px){
-    .blog-content{
-        width: 100%;
+
+.blog-content {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .blog-content {
+        max-width: 540px;
     }
 }
+
+@media (min-width: 768px) {
+    .blog-content {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .blog-content {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .blog-content {
+        max-width: 1140px;
+    }
+}
+
 .pagination a {
     color: #FFF;
     transition: all 0.2s ease;
     background: #1F7A65;
 }
-.blog-article{margin: 0px;text-indent: 20px;color: #969696;}
+.blog-article{
+  margin: 0px;
+  font-family: "Poppins", Arial;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #788487;
+  text-align: left;
+  background-color: #fff;
+}
 .newer-posts {
     left: 0;
 }
@@ -439,14 +479,14 @@ button{
 }
 .blog-content .content{
     background: white;
+    display: inline-block;
 }
-.content-list{
+.st{
     width: 880px;
     float: left;
     padding-bottom: 30px;
 }
 .content-secondly{
-    width: 200px;
     float: right;
 }
 .blog-meta{
@@ -454,8 +494,8 @@ button{
 }
 .post-date{
     color: #969696;
-    font-size: 12px;
-    line-height: 42px;
+    font-size: 13px;
+    padding-right: 10px;
 }
 /*右侧信息栏*/
 .content-secondly .info-basic{

@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Route,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 import PropTypes from "prop-types";
 
 class Content extends Component {
@@ -53,7 +53,7 @@ class Content extends Component {
 			info = <Prompt />
 		}
 		return(
-			<section className="content-list content">
+			<section className="col-lg-8 content-list content">
 				{info}
 				<Pages pageTick={ this.post} data={ this.state.data} />
 			</section>
@@ -82,20 +82,29 @@ class Article extends Component {
 	render(){
 		let data = this.props.data;
 		return(
-		    <article className="blog-piece">
-				<Title data={ data } />
-		        <section className="blog-excerpt">
-		            <p className="blog-article"> { data.info } ...
-						<Link className="read-more" to={ `/listDetail/${data._id}` }>MORE</Link>
+		    <article className="row blog-piece">
+          <div className="col-lg-5">
+              <div className="post-preview">
+                <Link to={ `/listDetail/${data._id}` }>
+                  <img src={require('../../images/5.jpg')} alt=""/>
+                </Link>
+              </div>
+          </div>
+          <div className="col-lg-7">
+            <Title data={ data } />
+		        <section className="post-content">
+		            <p className="blog-article">
+                    { data.info } ...
 		            </p>
+                <Link className="read-more" to={ `/listDetail/${data._id}` }>MORE</Link>
 		        </section>
+          </div>
 		    </article>
 		);
 	}
 }
 
 class ArticleList extends Component {
-
 	render(){
 		let articleList = this.props.data.map(function(article){
 			return <Article key={ article._id } data={ article } />
@@ -103,6 +112,7 @@ class ArticleList extends Component {
 		return articleList;
 	}
 }
+
 
 class Pages extends Component {
 	constructor(props){

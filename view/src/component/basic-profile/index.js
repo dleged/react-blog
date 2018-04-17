@@ -3,7 +3,7 @@ import React, { Component }  from 'react';
 class BasicProfile extends Component {
 	render(){
 		return(
-			<section className="content-secondly content">
+			<section className="col-lg-4 content-secondly content">
 				<div className="info-basic">
 					<div className="bg-cover">
 					</div>
