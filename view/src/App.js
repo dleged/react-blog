@@ -4,7 +4,11 @@ import './style/App.css';
 import Header from './component/header';
 import Content from './component/content';//博客列表和分页组件
 import Detail from './component/detail';//博客详情
-import BasicProfile from './component/basic-profile'//个人基本资料
+import Tag from './component/tag';//博客标签
+import List from './component/list';//最新文章
+import Cover from './component/cover';
+// import BasicProfile from './component/basic-profile'//个人基本资料
+
 import {
     BrowserRouter as Router,
     Route,
@@ -33,13 +37,18 @@ class App extends Component {
           <div className="App">
                 <Header />
                 <div className="blog-main">
-                    <div className="blog-content">
-                        <Route exact path='/index' component={Content}/>
-                        <Route path='/listDetail/:id' component={Detail} />
-                        <BasicProfile />
+                    <Cover src='../../images/module-9.jpg' />
+                    <div className="blog-content row">
+                        <div className="col-lg-8">
+                          <Route exact path='/index' component={Content}/>
+                          <Route path='/listDetail/:id' component={Detail} />
+                        </div>
+                        <div className="col-lg-4">
+                          <Tag />
+                          <List title="最新文章" />
+                        </div>
                     </div>
                 </div>
-
           </div>
        </Router>
     );

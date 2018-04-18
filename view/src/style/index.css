@@ -12202,6 +12202,7 @@ img.img-shadow,
 
 .header {
     position: fixed;
+    top: 0;
     height: 74px;
     width: 100%;
     transition: height .3s ease-out, background .3s ease-out, box-shadow .3s ease-out;
@@ -12233,6 +12234,7 @@ img.img-shadow,
     height: 100%;
     float: left;
     z-index: 1;
+    width: 120px;
 }
 
 .inner-brand {
@@ -12859,14 +12861,6 @@ img.img-shadow,
     background-color: #f8f8f8;
 }
 
-.overlay-background {
-    background: #333;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-}
 
 .overlay-background.overlay-gradient {
     background: #505cfd;
@@ -14195,4 +14189,61 @@ body.off-canvas-sidebar-open:after {
 
 .nav-sidebar a:hover {
     color: #505cfd;
+}
+.overlay-background {
+    background: #333;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.module,
+.module-cover {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: cover;
+    padding: 120px 0 100px;
+}
+.module-cover {
+    position: relative;
+    padding: 240px 0 240px;
+}
+[class*=" ti-"],[class^=ti-] {
+    font-family: themify;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+@font-face {
+    font-family: themify;
+    /* src: require(../fonts/themify.eot?-fvbane);
+    src: require(../fonts/themify.eot?#iefix-fvbane) format('embedded-opentype'),url(../fonts/themify.woff?-fvbane) format('woff'),url(../fonts/themify.ttf?-fvbane) format('truetype'),url(../fonts/themify.svg?-fvbane#themify) format('svg'); */
+    font-weight: 400;
+    font-style: normal
+}
+.ti-map-alt:before {
+    content: "\e691"
+}
+.module-cover-img{
+  background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/module-9.jpg);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 480px;
+    top: 60px;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translate3d(0px, 0px, 0px);
 }

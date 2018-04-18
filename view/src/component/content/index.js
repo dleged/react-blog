@@ -53,7 +53,7 @@ class Content extends Component {
 			info = <Prompt />
 		}
 		return(
-			<section className="col-lg-8 content-list content">
+			<section className="col-lg-12 content-list content">
 				{info}
 				<Pages pageTick={ this.post} data={ this.state.data} />
 			</section>
