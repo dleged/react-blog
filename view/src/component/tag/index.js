@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 class Tag extends React.Component {
 	render () {
 		return(
@@ -8,9 +8,9 @@ class Tag extends React.Component {
               <h6>标签</h6>
           </div>
           <div class="tag-cloud">
-						<a href="#">e-commerce</a><a href="#">portfolio</a>
-						<a href="#">responsive</a><a href="#">bootstrap</a>
-						<a href="#">business</a><a href="#">corporate</a>
+						<Link to="#">e-commerce</Link><Link to="#">portfolio</Link>
+						<Link to="#">responsive</Link><Link to="#">bootstrap</Link>
+						<Link to="#">business</Link><Link to="#">corporate</Link>
 					</div>
       </aside>
 		)

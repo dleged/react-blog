@@ -24,9 +24,9 @@ class Header extends Component {
                 </div>
                 <div className="extra-nav">
                     <ul>
-                        <li><a className="top-bar-cart" href="shop-cart-1.html"><span className="menu-item-span"><i className="ti-shopping-cart"></i><span>3</span></span></a></li>
-                        <li><a className="off-canvas-open" href="#"><span className="menu-item-span"><i className="ti-menu"></i></span></a></li>
-                        <li className="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span className="menu-item-span"><i className="ti-menu"></i></span></a></li>
+                        <li><a className="top-bar-cart" to="shop-cart-1.html"><span className="menu-item-span"><i className="ti-shopping-cart"></i><span>3</span></span></a></li>
+                        <li><a className="off-canvas-open" to="#"><span className="menu-item-span"><i className="ti-menu"></i></span></a></li>
+                        <li className="nav-toggle"><a to="#" data-toggle="collapse" data-target=".inner-navigation"><span className="menu-item-span"><i className="ti-menu"></i></span></a></li>
                     </ul>
                 </div>
             </div>

@@ -1,8 +1,6 @@
 import React, { Component }  from 'react';
 import Title from '../title';
 import {
-  BrowserRouter as Router,
-  Route,
   Link
 } from 'react-router-dom';
 import PropTypes from "prop-types";
@@ -124,6 +122,7 @@ class Pages extends Component {
 			pages: props.data.pages || 1
 		}
 	}
+  
 	nextPage = () => {
 		if(this.state.pages === this.state.page){
 			return;
@@ -136,7 +135,7 @@ class Pages extends Component {
 	}
 
 	prePage = () => {
-    if(this.state.page == 1){
+    if(this.state.page === 1){
       return;
     }
 		let page =  --this.state.page;
@@ -148,11 +147,11 @@ class Pages extends Component {
 
 	render(){
 		return (
-			<nav className="pagination" role="navigation">
-          <a className={ this.state.page == 1 ? "defalut-posts newer-posts" : "newer-posts" } onClick={this.prePage}>
+			<nav className="pagination">
+          <a className={ this.state.page === 1 ? "defalut-posts newer-posts" : "newer-posts" } onClick={this.prePage}>
               <span aria-hidden="true">←</span> PREV </a>
           <span className="page-number">Page { this.state.page } of { this.state.pages }</span>
-          <a className={ this.state.page == this.state.pages? "defalut-posts older-posts" : "older-posts" }
+          <a className={ this.state.page === this.state.pages? "defalut-posts older-posts" : "older-posts" }
              onClick={this.nextPage}>
               NEXT
               <span aria-hidden="true">→</span>

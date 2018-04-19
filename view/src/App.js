@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './style/App.css';
 import Header from './component/header';
 import Content from './component/content';//博客列表和分页组件

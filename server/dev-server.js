@@ -25,7 +25,7 @@ const DB_NAME = 'mongodb://localhost:27017/db';
 const DB_PATH = `--dbpath=${__dirname}/db`;
 //创建app应用 ==》nodeJs 中的http.createServer();
 const app = express();
-
+console.log(DB_PATH)
 spawn('mongod',[DB_PATH]);
 
 

@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import img from '../../images/module-9.jpg';
 class Cover extends React.Component {
 
 	componentDidMount(){

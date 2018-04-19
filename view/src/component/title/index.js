@@ -1,4 +1,4 @@
-import React,{ Component,Fragment } from 'react';
+import React,{ Component } from 'react';
 import {
   Link
 } from 'react-router-dom';
@@ -13,7 +13,7 @@ class Title extends Component {
 								<li>{ data.createTime.slice(0,10) }</li>
 									{
 									 data.mark.split().map(mark => {
-											return <li><a key="mark" href="#" target="_self">{ mark }</a></li>
+											return <li><a key="mark" to="#" target="_self">{ mark }</a></li>
 										})
 									}
 						</ul>
