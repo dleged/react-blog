@@ -2,18 +2,41 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import img from '../../images/module-9.jpg';
 class Cover extends React.Component {
+
 	componentDidMount(){
 		var context = this;
+		context.elementImg = document.querySelector('.module-cover-img');
+		context.elementHeader = document.querySelector('.header');
+		context.elementCover = document.querySelector('.module-cover');
+		context.setImgSize(window.innerWidth);
 		window.onscroll = () => {
-			console.log(111)
-			context.elementImg = document.querySelector('.module-cover-img');
 			context.imgScroll(window.scrollY);
+		}
+		window.onresize = () => {
+			context.setImgSize(window.innerWidth);
 		}
 	}
 
+	setImgSize = (width) =>{
+		console.log(width)
+			this.elementImg.style.height = width / 3 + 'px';
+			this.elementCover.style.height = width / 3 + 'px';
+	}
 	imgScroll = (y) =>{
+			if(y){
+					this.elementHeader.classList.add('header-small');
+					this.elementHeader.classList.add('header-shadow');
+			}else{
+					this.elementHeader.classList.remove('header-small');
+					this.elementHeader.classList.remove('header-shadow');
+			}
 			let img = this.elementImg;
-			img.style.transform = "translate3d('10px', `-${y}px`, '0px')";
+			let transform = `translate3d(0px, -${y/1.5}px, 0px)`;
+			img.style.webkitTransform = transform;
+			img.style.MozTransform = transform;
+			img.style.msTransform = transform;
+			img.style.OTransform = transform;
+			img.style.transform = transform;
 	}
 
 	render () {
@@ -31,7 +54,7 @@ class Cover extends React.Component {
 								height: '100%',
 								overflow: 'hidden',
 								pointerEvents: 'none',
-								zIndex: '-100'
+								zIndex: '100'
 							}}>
 							<div className="module-cover-img" >
 							</div>

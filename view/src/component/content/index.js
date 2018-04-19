@@ -136,7 +136,7 @@ class Pages extends Component {
 	}
 
 	prePage = () => {
-    if(this.state.page){
+    if(this.state.page == 1){
       return;
     }
 		let page =  --this.state.page;

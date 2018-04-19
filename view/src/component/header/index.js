@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 class Header extends Component {
 	render(){
 		return(
-			<header className="header header-transparent header-small header-shadow">
+			<header className="header header-transparent">
             <div className="container-fluid">
-                <div className="inner-header"><a className="inner-brand" href="index.html">端了个端</a></div>
+                <div className="inner-header"><a className="inner-brand" href="/index">端了个端</a></div>
                 <div className="inner-navigation collapse">
                     <div className="inner-nav">
                         <ul>

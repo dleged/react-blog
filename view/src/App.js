@@ -38,16 +38,18 @@ class App extends Component {
                 <Header />
                 <div className="blog-main">
                     <Cover src='../../images/module-9.jpg' />
-                    <div className="blog-content row">
-                        <div className="col-lg-8">
-                          <Route exact path='/index' component={Content}/>
-                          <Route path='/listDetail/:id' component={Detail} />
-                        </div>
-                        <div className="col-lg-4">
-                          <Tag />
-                          <List title="最新文章" />
-                        </div>
-                    </div>
+                    <section class="module">
+                      <div className="blog-content row">
+                          <div className="col-lg-8">
+                            <Route exact path='/index' component={Content}/>
+                            <Route path='/listDetail/:id' component={Detail} />
+                          </div>
+                          <div className="col-lg-4">
+                            <Tag />
+                            <List title="最新文章" />
+                          </div>
+                      </div>
+                    </section>
                 </div>
           </div>
        </Router>
