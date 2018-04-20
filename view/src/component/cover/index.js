@@ -16,7 +16,6 @@ class Cover extends React.Component {
 	}
 
 	setImgSize = (width) =>{
-		console.log(width)
 			this.elementImg.style.height = width / 3 + 'px';
 			this.elementCover.style.height = width / 3 + 'px';
 	}
@@ -43,20 +42,20 @@ class Cover extends React.Component {
 					backgroundImage: 'none',
 					zIndex: 0
 				}}>
-            <div className="overlay-background" style={{opacity: 0.3}}></div>
-						<div id="jarallax-container-0" style={{
-								position: 'absolute',
-								top: '0px',
-								left: '0px',
-								width: '100%',
-								height: '100%',
-								overflow: 'hidden',
-								pointerEvents: 'none',
-								zIndex: '100'
-							}}>
-							<div className="module-cover-img" >
-							</div>
+          <div className="overlay-background" style={{opacity: 0.3}}></div>
+					<div id="jarallax-container-0" style={{
+							position: 'absolute',
+							top: '0px',
+							left: '0px',
+							width: '100%',
+							height: '100%',
+							overflow: 'hidden',
+							pointerEvents: 'none',
+							zIndex: '100'
+						}}>
+						<div className="module-cover-img" >
 						</div>
+					</div>
 				</section>
 		)
 	}

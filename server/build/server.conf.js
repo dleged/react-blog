@@ -11,6 +11,7 @@ module.exports = {
     },
     prod:{//生产环境
         env: 'production',
+        port: 5050,
         index: path.resolve(__dirname, '../dist/index.html'),
         assetsRoot: path.resolve(__dirname, '../dist'),
         assetsSubDirectory: 'static',

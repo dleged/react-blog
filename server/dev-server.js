@@ -2,14 +2,14 @@
  * Created by $ on 2017/11/29.
  */
 
-
-// mongod --dbpath=/Users/fanduanduan/Desktop/前端/node/react-blog/data-server/db
 /*
 * TODO: require('server.conf').dev开发环境配置
 *       require('server.conf').build部署环境设置
 * */
 
-const config = process.env.NODE_ENV == 'dev' ? require('./build/server.conf.js').dev : require('./build/server.conf.js').prod;
+const config = process.env.NODE_ENV == 'dev'
+              ? require('./build/server.conf.js').dev
+              : require('./build/server.conf.js').prod;
 const port = config.port;
 const express = require('express');
 const swig = require('swig');//模块引擎
@@ -17,16 +17,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Cookies = require('cookies');
 const path = require('path');
-const spawn = require('child_process').spawn;
 const opn = require('opn');
 const User = require('./models/user');
-// const DB_NAME = 'mongodb://47.96.167.149:27017/usr/local/mongodb/db/blogDB';//连接远mongodb
-const DB_NAME = 'mongodb://localhost:27017/db';
+const DB_NAME = 'mongodb://127.0.0.1:27017/db';
 const DB_PATH = `--dbpath=${__dirname}/db`;
-//创建app应用 ==》nodeJs 中的http.createServer();
 const app = express();
-const router = express.Router();
-spawn('mongod',[DB_PATH]);
+
+//启动mongodb数据库
+require('./build/mongodb.start')(DB_PATH);
+
 
 
 /*
@@ -80,14 +79,17 @@ app.use(function(req,res,next){
  * 指定绑定函数，返回对象内容至用户
  * */
 
-
-
 // app.use('/',require('./routers/main/main'));//页面跳转
-router.all('*',function (req,res,next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+app.all('*',function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  if (req.method == 'OPTIONS') {
+    res.send(200); //让options请求快速返回
+  }
+  else {
     next();
+  }
 });
 //后台页面-接口路由
 app.use('/admin',require('./routers/admin/admin'));
