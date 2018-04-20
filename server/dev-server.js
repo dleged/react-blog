@@ -25,7 +25,7 @@ const DB_NAME = 'mongodb://localhost:27017/db';
 const DB_PATH = `--dbpath=${__dirname}/db`;
 //创建app应用 ==》nodeJs 中的http.createServer();
 const app = express();
-console.log(DB_PATH)
+const router = express.Router();
 spawn('mongod',[DB_PATH]);
 
 
@@ -83,7 +83,12 @@ app.use(function(req,res,next){
 
 
 // app.use('/',require('./routers/main/main'));//页面跳转
-
+router.all('*',function (req,res,next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    next();
+});
 //后台页面-接口路由
 app.use('/admin',require('./routers/admin/admin'));
 
