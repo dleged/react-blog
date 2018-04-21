@@ -7,9 +7,7 @@
 *       require('server.conf').build部署环境设置
 * */
 
-const config = process.env.NODE_ENV == 'dev'
-              ? require('./build/server.conf.js').dev
-              : require('./build/server.conf.js').prod;
+const config = require('./build/server.conf.js').dev;
 const port = config.port;
 const express = require('express');
 const swig = require('swig');//模块引擎
@@ -22,7 +20,7 @@ const User = require('./models/user');
 const DB_NAME = 'mongodb://127.0.0.1:27017/db';
 const DB_PATH = `--dbpath=${__dirname}/db`;
 const app = express();
-
+console.log(config)
 //启动mongodb数据库
 require('./build/mongodb.start')(DB_PATH);
 
@@ -100,13 +98,13 @@ app.use('/main',require('./routers/main/main'));
 
 
 //错误路由
-app.use(function(req, res, next) {
-    let err = new Error('Not Found');
-    err.status = 404;
-    console.error('WRONG:', '404 Not Found');
-    res.redirect('/admin');
-    next(err);
-});
+// app.use(function(req, res, next) {
+//     let err = new Error('Not Found');
+//     err.status = 404;
+//     console.error('WRONG:', '404 Not Found');
+//     res.redirect('/admin');
+//     next(err);
+// });
 mongoose.connect(DB_NAME,function(err){
     if(err){
         console.log('**********连接mongoose数据失败**********');

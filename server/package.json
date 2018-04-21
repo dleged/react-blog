@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "export NODE_ENV=dev && supervisor dev-server.js",
-    "prod": "export NODE_ENV=prod && supervisor dev-server.js",
-
+    "prod": "export NODE_ENV=prod && supervisor dev-server.js"
   },
   "author": "",
   "license": "ISC",

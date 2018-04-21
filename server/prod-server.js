@@ -7,9 +7,7 @@
 *       require('server.conf').build部署环境设置
 * */
 
-const config = process.env.NODE_ENV == 'dev'
-  ? require('./build/server.conf.js').dev
-  : require('./build/server.conf.js').prod;
+const require('./build/server.conf.js').dev;
 const port = config.port;
 const express = require('express');
 const swig = require('swig');//模块引擎
