@@ -17,13 +17,13 @@ const Cookies = require('cookies');
 const path = require('path');
 const opn = require('opn');
 const User = require('./models/user');
-const DB_NAME = 'mongodb://127.0.0.1:27017/db';
-const DB_PATH = `--dbpath=${__dirname}/db`;
+const DB_NAME = 'mongodb://47.94.234.96/home/mongodb-database/react-blog-db/data';
+// const DB_PATH = `--dbpath=${__dirname}/db`;
 const app = express();
 const router = express.Router();
 
 //启动mongodb数据库
-require('./build/mongodb.start')(DB_PATH);
+// require('./build/mongodb.start')(DB_PATH);
 
 
 

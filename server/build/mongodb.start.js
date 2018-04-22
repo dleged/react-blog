@@ -7,3 +7,6 @@ module.exports = function(DB_PATH){
 		console.log(e);
 	}
 }
+
+
+//echo "/usr/local/mongodb/bin/mongod --dbpath=/home/mongodb-database/react-blog-db/data –logpath=/home/mongodb-database/react-blog-db/logs –logappend  --auth –port=27017"

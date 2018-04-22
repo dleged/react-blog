@@ -20,7 +20,7 @@ const User = require('./models/user');
 const DB_NAME = 'mongodb://127.0.0.1:27017/db';
 const DB_PATH = `--dbpath=${__dirname}/db`;
 const app = express();
-console.log(config)
+
 //启动mongodb数据库
 require('./build/mongodb.start')(DB_PATH);
 
@@ -98,20 +98,20 @@ app.use('/main',require('./routers/main/main'));
 
 
 //错误路由
-// app.use(function(req, res, next) {
-//     let err = new Error('Not Found');
-//     err.status = 404;
-//     console.error('WRONG:', '404 Not Found');
-//     res.redirect('/admin');
-//     next(err);
-// });
-mongoose.connect(DB_NAME,function(err){
-    if(err){
-        console.log('**********连接mongoose数据失败**********');
-    }else{
-        console.info(`  连接mongoose数据成功`);
-        app.listen(port);
-        console.info(`  local http://localhost:${port}`)
-        opn('localhost:' + port + '/');
-    }
+app.use(function(req, res, next) {
+    let err = new Error('Not Found');
+    err.status = 404;
+    console.error('WRONG:', '404 Not Found');
+    res.redirect('/admin');
+    next(err);
 });
+  mongoose.connect(DB_NAME,function(err){
+      if(err){
+          console.log('**********连接mongoose数据失败**********');
+      }else{
+          console.info(`  连接mongoose数据成功`);
+          app.listen(port);
+          console.info(`  local http://localhost:${port}`)
+          opn('localhost:' + port + '/');
+      }
+  });
