@@ -35,7 +35,7 @@ router.get('/user',function(req,res,next){
     var page = Number(req.query.page || 1);//当前页数
     var skip = 0; //（当前页-1）*limit 跳过的条数;
     var pages = 0;//总条数
-
+    console.log('**************' + '打开用户列表' + '**************');
     UserBase.count().then(function(count){
         pages = Math.ceil(count/limit);
         page = Math.min(page,pages); //page不能超过总页数
@@ -361,4 +361,3 @@ router.get('/content/delete',function(req,res,next){
 
 
 module.exports = router;
-

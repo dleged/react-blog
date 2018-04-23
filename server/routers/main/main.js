@@ -69,8 +69,7 @@ router.get('/list',function(req,res,next){
 router.post('/queryList',function(req,res,next){
     /*从博客列表中读取列表*/
     var limit = 5; //读取的条数
-    var page = Number(req.body.page || 1);//当前页数
-    console.log(req.body)
+    var page = Number(req.body.params.page || 1);//当前页数
     var skip = 0; //（当前页-1）*limit 跳过的条数;
     var pages = 0;//总条数
     ContentBase.count().then(function(count){
@@ -100,11 +99,11 @@ router.post('/queryList',function(req,res,next){
 })
 
 /*
-*@react-blog接口
+*@rblog接口
 * 博客详情-api
 * */
 router.post('/listDetail',function(req,res,next){
-    var id = req.body.id;
+    var id = req.body.params.id;
     ContentBase.findOne({_id: id}).then(function(content){
         if(content){
             responseData = {

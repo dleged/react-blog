@@ -3,7 +3,8 @@ import Title from '../title';
 import {
   Link
 } from 'react-router-dom';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import {fetchContentArticle} from '../../api/index';
 
 class Content extends Component {
 	constructor(){
@@ -16,26 +17,17 @@ class Content extends Component {
 
 	post(page) {
 		let that = this;
-		fetch('/main/queryList',
-		 	{ method: 'POST',
-				headers: {
-					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-			  	},
-				mode: 'cors',
-				cache: 'default',
-				body:`page=${page}`
-		   }
-	   ).then(function (res) {
-			if(res.ok){
-				res.text().then((data)=>{
-					data = JSON.parse(data);
-	                that.setState({data});
-	            })
-			}
-		}).catch(function(err){
-			console.log(err);
-		})
+    fetchContentArticle({
+      page: page
+    })
+    .then(function(res){
+      let data = res.data;
+      that.setState({data});
+    })
+    .catch((err) => new Error(err));
+
 	}
+
 	componentDidMount() {
 		this.post(1);
 	}
@@ -122,7 +114,7 @@ class Pages extends Component {
 			pages: props.data.pages || 1
 		}
 	}
-  
+
 	nextPage = () => {
 		if(this.state.pages === this.state.page){
 			return;
