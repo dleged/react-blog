@@ -60,9 +60,11 @@ esac
 
 
 
-port=12345  
-bind_ip=10.10.10.10  
-logpath=/path/mongod.log  
-pidfilepath=/path/mongod.pid  
-logappend=true  
-fork=true
+use admin
+db.createUser(
+  {
+    user: "admin",
+    pwd: "password",
+    roles: [ { role: "root", db: "admin" } ]
+  }
+);

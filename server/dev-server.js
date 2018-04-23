@@ -18,13 +18,11 @@ const path = require('path');
 const opn = require('opn');
 const User = require('./models/user');
 const DB_NAME = 'mongodb://127.0.0.1:27017/db';
-const DB_PATH = `--dbpath=${__dirname}/db`;
+//const DB_PATH = `--dbpath=${__dirname}/db`;
 const app = express();
 
 //启动mongodb数据库
-require('./build/mongodb.start')(DB_PATH);
-
-
+// require('./build/mongodb.start')(DB_PATH);
 
 /*
  * 配置模板引擎
@@ -42,8 +40,9 @@ swig.setDefaults({
     tzOffset: false
 })
 
-/*bodyParse设置,解析url路径*/
+/*bodyParse设置,解析url路径*/;
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 /*
  * 设置静态文件托管
@@ -57,16 +56,16 @@ app.use(function(req,res,next){
     req.cookies = new Cookies(req,res);
     //解析cookies用户信息
     req.userInfo = {};
-    try{
-        req.userInfo = JSON.parse(req.cookies.get('userInfo'));
-        /!*判断是否是管理员*!/
-        User.findById(req.userInfo.id).then(function(user){
-            req.userInfo.isAdmin = Boolean(user.isAdmin);
-        })
-    }catch(e) {
-        //清空cookies的情况
-        console.log('角色分配出现错误！');
-    }
+    // try{
+    //     req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+    //     /!*判断是否是管理员*!/
+    //     User.findById(req.userInfo.id).then(function(user){
+    //         req.userInfo.isAdmin = Boolean(user.isAdmin);
+    //     })
+    // }catch(e) {
+    //     //清空cookies的情况
+    //     console.log('角色分配出现错误！');
+    // }
     next();
 });
 
@@ -80,7 +79,8 @@ app.use(function(req,res,next){
 // app.use('/',require('./routers/main/main'));//页面跳转
 app.all('*',function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+  res.header('Access-Control-Allow-Headers',
+    'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   if (req.method == 'OPTIONS') {
     res.send(200); //让options请求快速返回

@@ -1,11 +1,11 @@
 {
   "name": "faith",
   "version": "1.0.0",
-  "description": "个人博客网站",
+  "description": "端了个端博客网站",
   "main": "index.js",
   "scripts": {
     "dev": "export NODE_ENV=dev && supervisor dev-server.js",
-    "prod": "export NODE_ENV=prod && supervisor dev-server.js"
+    "prod": "export NODE_ENV=prod && node prod-server.js"
   },
   "author": "",
   "license": "ISC",

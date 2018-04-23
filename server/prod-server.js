@@ -7,7 +7,7 @@
 *       require('server.conf').build部署环境设置
 * */
 
-const require('./build/server.conf.js').dev;
+const config = require('./build/server.conf.js').dev;
 const port = config.port;
 const express = require('express');
 const swig = require('swig');//模块引擎
@@ -17,13 +17,9 @@ const Cookies = require('cookies');
 const path = require('path');
 const opn = require('opn');
 const User = require('./models/user');
-const DB_NAME = 'mongodb://47.94.234.96/home/mongodb-database/react-blog-db/data';
-// const DB_PATH = `--dbpath=${__dirname}/db`;
+const DB_NAME = 'mongodb://47.94.234.96:27017/db'; //正式库地址
 const app = express();
 const router = express.Router();
-
-//启动mongodb数据库
-// require('./build/mongodb.start')(DB_PATH);
 
 
 
@@ -44,7 +40,8 @@ swig.setDefaults({
 })
 
 /*bodyParse设置,解析url路径*/
-app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParse.json());
 
 /*
  * 设置静态文件托管
@@ -58,16 +55,16 @@ app.use(function(req,res,next){
     req.cookies = new Cookies(req,res);
     //解析cookies用户信息
     req.userInfo = {};
-    try{
-        req.userInfo = JSON.parse(req.cookies.get('userInfo'));
-        /!*判断是否是管理员*!/
-        User.findById(req.userInfo.id).then(function(user){
-            req.userInfo.isAdmin = Boolean(user.isAdmin);
-        })
-    }catch(e) {
-        //清空cookies的情况
-        console.log('角色分配出现错误！');
-    }
+    // try{
+    //     req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+    //     /!*判断是否是管理员*!/
+    //     User.findById(req.userInfo.id).then(function(user){
+    //         req.userInfo.isAdmin = Boolean(user.isAdmin);
+    //     })
+    // }catch(e) {
+    //     //清空cookies的情况
+    //     console.log('角色分配出现错误！');
+    // }
     next();
 });
 
@@ -82,7 +79,8 @@ app.use(function(req,res,next){
 //设置跨域请求
 app.all('*',function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+  res.header('Access-Control-Allow-Headers',
+  'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   if (req.method == 'OPTIONS') {
     res.send(200); /让options请求快速返回/
@@ -113,6 +111,7 @@ app.use(function(req, res, next) {
 //连接数据库成功后，启动express服务器
 mongoose.connect(DB_NAME,function(err){
     if(err){
+        console.log(err);
         console.log('**********连接mongoose数据失败**********');
     }else{
         console.info(`  连接mongoose数据成功`);
