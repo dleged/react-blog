@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import Title from '../title';
-
+import {fetchArticle} from '../../api/index'
 class Detail extends Component {
 	constructor(props){
 		super(props);
@@ -20,26 +20,37 @@ class Detail extends Component {
 
 	post(id){
 		let that = this;
-		fetch('/main/listDetail',
-		 	{ method: 'POST',
-				headers: {
-					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-			  	},
-				mode: 'cors',
-				cache: 'default',
-				body:`id=${id}`
-		   }
-	   ).then(function (res) {
-			if(res.ok){
-				console.log(res)
-				res.text().then((data)=>{
-						data = JSON.parse(data);
-            that.setState({data});
-        })
-			}
-		}).catch(function(err){
-			 console.log(err);
-		})
+
+		fetchArticle({
+      id: id
+    })
+    .then(function(res){
+      let data = res.data;
+      that.setState({data});
+    })
+    .catch((err) => new Error(err));
+
+		// fetch('/main/listDetail',
+		//  	{ method: 'POST',
+		// 		headers: {
+		// 			"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+		// 	  	},
+		// 		mode: 'cors',
+		// 		cache: 'default',
+		// 		body:`id=${id}`
+		//    }
+	  //  ).then(function (res) {
+		// 	if(res.ok){
+		// 		console.log(res)
+		// 		res.text().then((data)=>{
+		// 				data = JSON.parse(data);
+    //         that.setState({data});
+    //     })
+		// 	}
+		// }).catch(function(err){
+		// 	 console.log(err);
+		// })
+
 	}
 
 	componentDidMount = () => {
