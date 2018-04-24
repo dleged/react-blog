@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import './style/App.css';
 import Header from './component/header';
 import Content from './component/content';//博客列表和分页组件
-import Detail from './component/detail';//博客详情
+// import Detail from './component/detail';//博客详情
 import Tag from './component/tag';//博客标签
 import List from './component/list';//最新文章
 import Cover from './component/cover';
 // import BasicProfile from './component/basic-profile'//个人基本资料
 
-import {
-    BrowserRouter as Router,
-    Route,
- } from 'react-router-dom';
+const Detail = r => require.ensure([], () => r(require('./component/detail')));
 
 class App extends Component {
   render() {
@@ -30,7 +27,7 @@ class App extends Component {
                           </div>
                           <div className="col-lg-4">
                             <Tag />
-                            <List title="最新文章" />
+                            <List title="最新文章 🆕 " />
                           </div>
                       </div>
                     </section>

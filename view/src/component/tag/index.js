@@ -6,7 +6,7 @@ class Tag extends React.Component {
 		return(
 			<aside class="widget widget-tag-cloud">
           <div class="widget-title">
-              <h6>标签</h6>
+              <h6>标签🏷️</h6>
           </div>
           <div class="tag-cloud">
 						<Link to="/tag/react" component={Content}>react</Link>

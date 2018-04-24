@@ -73,14 +73,14 @@ class Article extends Component {
 		let data = this.props.data;
 		return(
 		    <article className="row blog-piece">
-          <div className="col-lg-5">
+          <div className="col-lg-4">
               <div className="post-preview">
                 <Link to={ `/listDetail/${data._id}` }>
                   <img src={require('../../images/5.jpg')} alt=""/>
                 </Link>
               </div>
           </div>
-          <div className="col-lg-7">
+          <div className="col-lg-8">
             <Title data={ data } />
 		        <section className="post-content">
 		            <p className="blog-article">

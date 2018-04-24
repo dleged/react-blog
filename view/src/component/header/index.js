@@ -6,7 +6,7 @@ class Header extends Component {
 		return(
 			<header className="header header-transparent">
             <div className="container-fluid">
-                <div className="inner-header"><a className="inner-brand" href="/index">端了个端</a></div>
+                <div className="inner-header"><a className="inner-brand" href="/index">端了个端啊</a></div>
                 <div className="inner-navigation collapse">
                     <div className="inner-nav">
                         <ul>
@@ -14,10 +14,10 @@ class Header extends Component {
 																<Link to="/index"><span className="menu-item-span">Home</span></Link>
                             </li>
 														<li className="menu-item-has-children menu-item-has-mega-menu">
-																<Link to="/index"><span className="menu-item-span">Home</span></Link>
+																<Link to="/index"><span className="menu-item-span">书籍</span></Link>
                             </li>
 														<li className="menu-item-has-children menu-item-has-mega-menu">
-																<Link to="/index"><span className="menu-item-span">Home</span></Link>
+																<Link to="/index"><span className="menu-item-span">关于我</span></Link>
                             </li>
                         </ul>
                     </div>

@@ -145,7 +145,17 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-
+              plugins: [
+                [
+                  'transform-es2015-modules-commonjs',
+                  'babel-plugin-module-resolver',
+                  {
+                    alias: {
+                      components: './src/components',
+                    },
+                  },
+                ],
+              ],
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
@@ -212,6 +222,31 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+     // test: /\.xxx$/, // may apply this only for some modules
+     chunks: "async",
+      minSize: 12,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: true,
+      cacheGroups: {
+         default: {
+             minChunks: 2,
+             priority: -20,
+             reuseExistingChunk: true,
+         },
+         vendors: {
+             test: /[\\/]node_modules[\\/]/,
+             priority: -10
+         }
+      },
+      default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+      }
+    }),
     new extractTextPlugin({
       filename: 'static/css/[name]_bundle.[hash:4].js',
       allChunks: true
