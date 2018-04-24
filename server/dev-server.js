@@ -79,6 +79,7 @@ app.use(function(req,res,next){
 // app.use('/',require('./routers/main/main'));//页面跳转
 app.all('*',function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Expose-Headers','X-Custom-Header');
   res.header('Access-Control-Allow-Headers',
     'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');

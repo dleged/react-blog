@@ -13,6 +13,6 @@ export default axios.create({
 			maxContentLength: 2000,
 			headers: {
 				"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-		  }
-			 headers: {'X-Custom-Header': 'foobar'}
+		  },
+			headers: {'X-Custom-Header': 'foobar'}
 });
