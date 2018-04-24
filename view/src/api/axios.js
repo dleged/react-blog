@@ -11,8 +11,8 @@ export default axios.create({
 			responseType: 'json',
 		  timeout: 5000,
 			maxContentLength: 2000,
-			// headers: {
-			// 	"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-		  // }
+			headers: {
+				"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+		  }
 			 headers: {'X-Custom-Header': 'foobar'}
 });
