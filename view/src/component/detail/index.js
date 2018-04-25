@@ -70,8 +70,8 @@ class Detail extends Component {
 	}
 }
 
-// export default Detail;
-module.exports = Detail;
+export default Detail;
+// module.exports = Detail;
 
 // <div class="blog-main">
 // 	<div class="blog-content">

@@ -52,9 +52,7 @@ class Content extends Component {
 }
 
 function Prompt(props) {
-	return (<h3 className="blog-tips">还没有博客，开始你的第一个
-				<a href="/admin">博客吧！</a>
-			</h3>);
+	return (<h3 className="blog-tips">还没有博客，开始你的第一个</h3>);
 
 }
 
@@ -119,7 +117,7 @@ class Pages extends Component {
 		if(this.state.pages === this.state.page){
 			return;
 		}
-		let page = ++this.state.page;
+		let page = this.state.page + 1;
 		this.setState({
 			page: page
 		});
@@ -130,7 +128,7 @@ class Pages extends Component {
     if(this.state.page === 1){
       return;
     }
-		let page =  --this.state.page;
+		let page = this.state.page - 1;
 		this.setState({
 			page: page
 		});

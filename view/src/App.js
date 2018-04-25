@@ -6,6 +6,9 @@ import Content from './component/content';//博客列表和分页组件
 import Tag from './component/tag';//博客标签
 import List from './component/list';//最新文章
 import Cover from './component/cover';
+import {
+  BrowserRouter as Router,Route
+} from 'react-router-dom';
 // import BasicProfile from './component/basic-profile'//个人基本资料
 
 const Detail = r => require.ensure([], () => r(require('./component/detail')));
@@ -18,7 +21,7 @@ class App extends Component {
                 <Header />
                 <div className="blog-main">
                     <Cover src='../../images/module-9.jpg' />
-                    <section class="module">
+                    <section className="module">
                       <div className="blog-content row">
                           <div className="col-lg-8">
                             <Route exact path='/' component={Content}/>
