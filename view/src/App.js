@@ -23,14 +23,6 @@ let Content = Loadable({
   loading: Loading
 })
 
-// const Detail = (location, cb) => {
-//     require.ensure([], require => {
-//         cb(null, require('./component/detail'));
-//     },'Detail')
-// }
-
-
-
 class App extends Component {
   render() {
     return (
