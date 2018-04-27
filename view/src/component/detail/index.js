@@ -30,27 +30,6 @@ class Detail extends Component {
     })
     .catch((err) => new Error(err));
 
-		// fetch('/main/listDetail',
-		//  	{ method: 'POST',
-		// 		headers: {
-		// 			"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-		// 	  	},
-		// 		mode: 'cors',
-		// 		cache: 'default',
-		// 		body:`id=${id}`
-		//    }
-	  //  ).then(function (res) {
-		// 	if(res.ok){
-		// 		console.log(res)
-		// 		res.text().then((data)=>{
-		// 				data = JSON.parse(data);
-    //         that.setState({data});
-    //     })
-		// 	}
-		// }).catch(function(err){
-		// 	 console.log(err);
-		// })
-
 	}
 
 	componentDidMount = () => {

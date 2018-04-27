@@ -10,10 +10,10 @@ class Title extends Component {
 				<div className="post-header">
 						<h2 className="post-title"><Link to={ `/listDetail/${data._id}` }>{ data.title }</Link></h2>
 						<ul className="post-meta">
-								<li>{ data.createTime.slice(0,10) }</li>
+								<li key='-1' >{ data.createTime.slice(0,10) }</li>
 									{
-									 data.mark.split().map(mark => {
-											return <li><a key="mark" to="#" target="_self">{ mark }</a></li>
+									 data.mark.split().map((mark) => {
+											return <li key="mark"><a to="#" target="_self">{ mark }</a></li>
 										})
 									}
 						</ul>

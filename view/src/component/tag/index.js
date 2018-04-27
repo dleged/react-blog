@@ -1,12 +1,11 @@
 import React from 'react';
-import Content from '../content/index';
 import {Link} from 'react-router-dom'
 class Tag extends React.Component {
 	render () {
 		return(
 			<aside className="widget widget-tag-cloud">
           <div className="widget-title">
-              <h6>标签 🏷️</h6>
+              <h6>标签</h6>
           </div>
           <div className="tag-cloud">
 

@@ -107,6 +107,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "jquery": "^3.3.1",
     "mongoose": "^5.0.8",
-    "proxy": "^0.2.4"
+    "proxy": "^0.2.4",
+    "react-loadable": "^5.3.1"
   }
 }
