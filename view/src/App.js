@@ -6,19 +6,13 @@ import Header from './component/header';
 import Tag from './component/tag';//博客标签
 import List from './component/list';//最新文章
 import Cover from './component/cover';
+import Loading form './component/loading';
 import {
   BrowserRouter as Router,Route
 } from 'react-router-dom';
 
 import Loadable from 'react-loadable';
 
-const Loading = ({ error }) => {
-  if (error) {
-    return (<div>Error!</div>);
-  } else {
-    return (<div>Loading...</div>);
-  }
-};
 let Detail = Loadable({
   loader: () => import('./component/detail'),
   loading: Loading
