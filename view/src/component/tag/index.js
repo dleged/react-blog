@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Content from '../content';
 class Tag extends React.Component {
 	render () {
 		return(
@@ -8,7 +9,11 @@ class Tag extends React.Component {
               <h6>标签</h6>
           </div>
           <div className="tag-cloud">
-
+						{
+							this.props.list.map((item) => (
+								 <Link to={`/tag/${item}`} component={Content}>{item}</Link>
+							))
+						}
 					</div>
       </aside>
 		)
@@ -16,9 +21,3 @@ class Tag extends React.Component {
 }
 
 export default Tag;
-// <Link to="/tag/react" component={Content}>react</Link>
-// <Link to="/tag/es6" component={Content}>es6</Link>
-// <Link to="/tag/webpack" component={Content}>webpack</Link>
-// <Link to="/tag/javascript" component={Content}>javascript</Link>
-// <Link to="/tag/css" component={Content}>css</Link>
-// <Link to="/tag/html" component={Content}>html</Link>

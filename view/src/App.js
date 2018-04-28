@@ -6,7 +6,7 @@ import Header from './component/header';
 import Tag from './component/tag';//博客标签
 import List from './component/list';//最新文章
 import Cover from './component/cover';
-import Loading form './component/loading';
+import Loading from './component/loading';
 import {
   BrowserRouter as Router,Route
 } from 'react-router-dom';
@@ -26,6 +26,7 @@ let Content = Loadable({
 class App extends Component {
   render() {
     return (
+  
         <Router path='/'>
           <div className="App">
                 <Header />
@@ -39,7 +40,7 @@ class App extends Component {
                             <Route path='/listDetail/:id' component={Detail} />
                           </div>
                           <div className="col-lg-4">
-                            <Tag />
+                            <Tag list={['react','es6','webpack','javascript','css','html']}/>
                             <List title="最新文章 🆕 " />
                           </div>
                       </div>

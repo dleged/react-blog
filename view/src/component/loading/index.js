@@ -1,9 +1,9 @@
 
-
-export default Loading = ({ error }) => {
+function Loading({ error }){
   if (error) {
-    return (<div>Error!</div>);
+    return (`<div>Error!</div>`);
   } else {
-    return (<div>Loading...</div>);
+    return (`<div>Loading...</div>`);
   }
-};
+}
+export default Loading;
