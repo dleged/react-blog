@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './style/App.css';
 import Header from './component/header';
-// import Content from './component/content';//博客列表和分页组件
-// import Detail from './component/detail';//博客详情
 import Tag from './component/tag';//博客标签
 import List from './component/list';//最新文章
 import Cover from './component/cover';
@@ -26,7 +24,7 @@ let Content = Loadable({
 class App extends Component {
   render() {
     return (
-  
+
         <Router path='/'>
           <div className="App">
                 <Header />
