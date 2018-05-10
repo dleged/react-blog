@@ -24,7 +24,6 @@ let Content = Loadable({
 class App extends Component {
   render() {
     return (
-
         <Router path='/'>
           <div className="App">
                 <Header />

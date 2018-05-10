@@ -4,14 +4,16 @@ import './index.less';
 class Loading extends Component{
   render(){
     return (
-      <ul className="loading">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+      <div class="loading">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </div>
     )
   }
 }
-
+console.log('加载过渡组件...')
 export default Loading;

@@ -13675,7 +13675,7 @@ body.off-canvas-sidebar-open:after {
     content: "\e691"
 }
 .module-cover-img{
-  background-position: 50% 50%;
+  background-position: 50% 20%;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../images/module-9.jpg);
