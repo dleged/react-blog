@@ -1,9 +1,17 @@
+import {Component} from 'react';
+import './index.less';
 
-function Loading({ error }){
-  if (error) {
-    return (`<div>Error!</div>`);
-  } else {
-    return (`<div>Loading...</div>`);
+class Loading extends Component{
+  render(){
+    return (
+      <ul class="loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    )
   }
 }
+
 export default Loading;
