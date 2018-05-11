@@ -1,10 +1,10 @@
-import {Component} from 'react';
+import React,{Component} from 'react';
 import './index.less';
 
 class Loading extends Component{
   render(){
     return (
-      <ul class="loading">
+      <ul className="loading">
         <li></li>
         <li></li>
         <li></li>
