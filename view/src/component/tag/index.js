@@ -10,8 +10,8 @@ class Tag extends React.Component {
           </div>
           <div className="tag-cloud">
 						{
-							this.props.list.map((item) => (
-								 <Link to={`/tag/${item}`} component={Content}>{item}</Link>
+							this.props.list.map((item,index) => (
+								 <Link key={index} to={`/tag/${item}`}>{item}</Link>
 							))
 						}
 					</div>

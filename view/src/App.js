@@ -11,6 +11,7 @@ import {
 
 import Loadable from 'react-loadable';
 
+
 let Detail = Loadable({
   loader: () => import('./component/detail'),
   loading: Loading
@@ -18,15 +19,22 @@ let Detail = Loadable({
 
 let Content = Loadable({
   loader: () => import('./component/content'),
-  loading: Loading
+  loading: Loading,
 })
 
 class App extends Component {
+  onMouseOver = () => {
+    Content.preload();
+  };
   render() {
     return (
         <Router path='/'>
           <div className="App">
                 <Header />
+                <button
+                   onMouseOver={this.onMouseOver}>
+                   button
+                 </button>
                 <div className="blog-main">
                     <Cover src='../../images/module-9.jpg' />
                     <section className="module">

@@ -4,7 +4,7 @@ import './index.less';
 class Loading extends Component{
   render(){
     return (
-      <div class="loading">
+      <div className="loading">
         <ul>
           <li>1</li>
           <li>2</li>
