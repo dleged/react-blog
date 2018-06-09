@@ -16,8 +16,8 @@ class Cover extends React.Component {
 	}
 
 	setImgSize = (width) =>{
-			this.elementImg.style.height = width / 3 + 'px';
-			this.elementCover.style.height = width / 3 + 'px';
+			this.elementImg.style.height = width / 5 + 'px';
+			this.elementCover.style.height = width / 5 + 'px';
 	}
 	imgScroll = (y) =>{
 			if(y){

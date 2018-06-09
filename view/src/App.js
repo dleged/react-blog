@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './style/App.css';
 import Header from './component/header';
-// import Content from './component/content';//博客列表和分页组件
-// import Detail from './component/detail';//博客详情
 import Tag from './component/tag';//博客标签
 import List from './component/list';//最新文章
 import Cover from './component/cover';
@@ -13,6 +11,7 @@ import {
 
 import Loadable from 'react-loadable';
 
+
 let Detail = Loadable({
   loader: () => import('./component/detail'),
   loading: Loading
@@ -20,16 +19,22 @@ let Detail = Loadable({
 
 let Content = Loadable({
   loader: () => import('./component/content'),
-  loading: Loading
+  loading: Loading,
 })
 
 class App extends Component {
+  onMouseOver = () => {
+    Content.preload();
+  };
   render() {
     return (
-  
         <Router path='/'>
           <div className="App">
                 <Header />
+                <button
+                   onMouseOver={this.onMouseOver}>
+                   button
+                 </button>
                 <div className="blog-main">
                     <Cover src='../../images/module-9.jpg' />
                     <section className="module">
