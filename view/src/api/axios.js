@@ -7,7 +7,7 @@ process.env.NODE_ENV === 'development'
  : BASEURL = 'http://47.94.234.96:5050/';
 
 export default axios.create({
-		  baseURL: 'http://47.94.234.96:5050/',
+			baseURL: BASEURL,
 			responseType: 'json',
 		  timeout: 5000,
 			maxContentLength: 2000,

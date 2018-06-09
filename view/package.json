@@ -97,7 +97,7 @@
   },
   "proxy": {
     "/": {
-      "target": "http://127.0.0.1:5050/",
+      "target": "http://47.94.234.96:5050/",
       "changeOrigin": "true",
       "secure": "false"
     }
