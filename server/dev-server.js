@@ -41,8 +41,8 @@ swig.setDefaults({
 })
 
 /*bodyParse设置,解析url路径*/;
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 /*
  * 设置静态文件托管
