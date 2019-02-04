@@ -1,5 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+git-put.js
+.gitignore
+package.json
 node_modules
 .idea
 npm-debug.log
