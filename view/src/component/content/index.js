@@ -60,7 +60,7 @@ class Article extends Component {
 	    router: PropTypes.object
 	}
   	constructor(props, context) {
-     super(props, context);
+    super(props, context);
 		this.fetchDetail = this.fetchDetail.bind(this);
 	}
 	fetchDetail(id){

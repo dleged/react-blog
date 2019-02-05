@@ -107,6 +107,7 @@ app.use(function(req, res, next) {
     next(err);
 });
   mongoose.connect(DB_NAME,function(err){
+    console.log(err);
       if(err){
           console.log('**********连接mongoose数据失败**********');
       }else{

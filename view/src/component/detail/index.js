@@ -1,6 +1,9 @@
 import React, { Component }  from 'react';
 import Title from '../title';
 import {fetchArticle} from '../../api/index'
+import { autobind } from 'core-decorators'
+
+@autobind
 class Detail extends Component {
 	constructor(props){
 		super(props);
@@ -15,8 +18,9 @@ class Detail extends Component {
 				}
 			}
 		};
-		this.post = this.post.bind(this);
+		// this.post = this.post.bind(this);
 	}
+
 
 	post(id){
 		let that = this;
